@@ -1,37 +1,46 @@
 <!DOCTYPE html>
+<html>
+<head>
+    <title>Ferghana Guide</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #f0f0f0; }
+        button { padding: 10px; margin: 5px; background: #007bff; color: white; border: none; cursor: pointer; }
+        .place { background: white; padding: 10px; margin: 10px 0; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        img { max-width: 100%; height: auto; }
+        a { color: #007bff; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <h1>Фергана Гид</h1>
+    <button onclick="showCategory('food')">Еда</button>
+    <button onclick="showCategory('family')">Семейный отдых</button>
+    <button onclick="showCategory('evening')">Вечер</button>
+    <div id="places"></div>
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>NGINX on Railway</title>
-    <meta name="description" content="Choo Choo!" />
+    <script>
+        const places = [
+            { category: "food", name: "Вкусный Плов", desc: "Лучший плов", img: "https://твой_сайт.com/фото_плова.jpg", map: "https://maps.google.com/?q=40.384,71.784" },
+            { category: "family", name: "Парк Алишер Навои", desc: "Для детей", img: "https://твой_сайт.com/фото_парка.jpg", map: "https://maps.google.com/?q=40.380,71.785" }
+        ];
 
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+        function showCategory(category) {
+            const filtered = places.filter(p => p.category === category);
+            const div = document.getElementById("places");
+            div.innerHTML = "";
+            filtered.forEach(place => {
+                div.innerHTML += `
+                    <div class="place">
+                        <h2>${place.name}</h2>
+                        <p>${place.desc}</p>
+                        <img src="${place.img}">
+                        <a href="${place.map}" target="_blank">Открыть карту</a>
+                    </div>`;
+            });
+        }
 
-    <link rel="stylesheet" href="/styles.css?v=1.0" />
-  </head>
-
-  <body>
-    <main>
-      <img
-        src="https://railway.app/brand/logo-light.svg"
-        alt="Railway logo"
-        class="logo"
-      />
-
-      <h1>NGINX on Railway</h1>
-
-      <p>
-        Choo Choo! This is an example of an NGINX static site running on
-        Railway.
-        <a
-          href="https://github.com/railwayapp/starters/tree/master/examples/nginx"
-          >View source</a
-        >.
-      </p>
-    </main>
-
-    <script src="/script.js"></script>
-  </body>
+        window.Telegram.WebApp.ready();
+        window.Telegram.WebApp.expand();
+    </script>
+</body>
 </html>
