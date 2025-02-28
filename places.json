@@ -1,0 +1,18 @@
+{
+    "places": [
+      {
+        "category": "food",
+        "name": "Вкусный Плов",
+        "description": "Лучший плов в Фергане",
+        "image": "https://example.com/plov.jpg",
+        "location": "https://maps.google.com/?q=40.376,71.789"
+      },
+      {
+        "category": "family",
+        "name": "Парк Алишер Навои",
+        "description": "Отличное место для отдыха с детьми",
+        "image": "https://example.com/park.jpg",
+        "location": "https://maps.google.com/?q=40.380,71.785"
+      }
+    ]
+  }
